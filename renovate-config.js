@@ -12,8 +12,9 @@ module.exports = {
       enabled: true
     }
   ],
-  docker: {
-    // Any docker manager-specific config goes here
-    managerFilePatterns: ["^Dockerfile$"]
+  managers: {
+    docker: {
+      managerFilePatterns: ["^Dockerfile$"]
+    }
   }
 };
