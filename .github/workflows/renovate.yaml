@@ -21,6 +21,7 @@ jobs:
         uses: renovatebot/github-action@v42.0.1
         env:
           RENOVATE_REPOSITORIES: 'testghappvos/renovations'
+          LOG_LEVEL: debug
         with:
           configurationFile: renovate-config.js
           token: '${{ steps.get_token.outputs.token }}'
