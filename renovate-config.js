@@ -1,19 +1,19 @@
 module.exports = {
-  extends: [
-    "config:base"
-  ],
-  docker: {
-    enabled: true
-  },
+  extends: ["config:recommended"],
   packageRules: [
+    {
+      matchCategories: ["docker"],
+      enabled: true
+    },
     {
       matchDatasources: ["docker"],
       matchPackageNames: ["php"],
-      matchPaths: ["Dockerfile"],
-      enabled: true,
-      // Customize schedule, groupName, etc. as needed
+      matchFileNames: ["Dockerfile"],
+      enabled: true
     }
   ],
-  // Optional: Restrict Renovate to only the root Dockerfile
-  fileMatch: ["^Dockerfile$"]
+  docker: {
+    // Any docker manager-specific config goes here
+    managerFilePatterns: ["^Dockerfile$"]
+  }
 };
