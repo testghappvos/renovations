@@ -1,18 +1,19 @@
 module.exports = {
-  extends: ['config:base'],
+  extends: [
+    "config:base"
+  ],
   docker: {
     enabled: true
   },
   packageRules: [
     {
-      matchDatasources: ['docker'],
-      matchPackageNames: ['php'],
-      groupName: 'PHP Docker base image'
+      matchDatasources: ["docker"],
+      matchPackageNames: ["php"],
+      matchPaths: ["Dockerfile"],
+      enabled: true,
+      // Customize schedule, groupName, etc. as needed
     }
   ],
-  dockerfile: {
-    fileMatch: ['^Dockerfile$']
-  },
-  schedule: ['weekly'],
-  timezone: 'UTC'
+  // Optional: Restrict Renovate to only the root Dockerfile
+  fileMatch: ["^Dockerfile$"]
 };
